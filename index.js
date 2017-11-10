@@ -53,7 +53,7 @@ module.exports = (files, options) => new Promise((resolve, reject) => {
 
 	const childPromise = (isWindows && options.libPath !== 'pdftk')
 		? execFile(options.libPath, args)
-		: exec(`${options.libPath} ${args.join(' ')}`);
+		: exec(`${options.libPath} ${args.join(' ')}`, options.execOptions);
 
 	childPromise
 		.then(() =>
